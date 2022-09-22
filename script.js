@@ -207,10 +207,7 @@ function generatePassword() {
   console.log("password length selected is" + passwordLength)
 
   
-
 }
-
-
 
 
 // Write password to the #password input
