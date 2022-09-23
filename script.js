@@ -22,20 +22,20 @@ var combinedCharacters = []
 var generateBtn = document.querySelector("#generate");
 
 function promptUser() {
-while (combinedCharacters.length == 0) {
-  promptPasswordLength()
-  promptUseLowercase()
-  promptUseUppercase()
-  promptUseNumbers()
-  promptuseSpecialCharacters()
-  if (combinedCharacters.length == 0) {
-    console.log("error. must have characters in password");
-    alert("Error! Must select at least one character set to generate password")
+  while (combinedCharacters.length == 0) {
+    promptPasswordLength()
+    promptUseLowercase()
+    promptUseUppercase()
+    promptUseNumbers()
+    promptuseSpecialCharacters()
+    if (combinedCharacters.length == 0) {
+      console.log("error. must have characters in password");
+      alert("Error! Must select at least one character set to generate password")
+    }
+    else {
+      console.log("combined character suitable to work");
+    }
   }
-  else {
-    console.log("combined character suitable to work");
-  }
-}
 }
 
 var passwordLength
@@ -202,16 +202,40 @@ function promptuseSpecialCharacters() {
   }
 }
 
+
 function generatePassword() {
   console.log("click working")
   console.log("password length selected is" + passwordLength)
 
-  
+  function getRandom(arr) {
+    var randIndex = Math.floor(Math.random() * arr.length);
+    var randElement = arr[randIndex];
+    console.log('randElement', randElement);
+    return randElement;
+
+  }
+
+  var lowerCaseChar = getRandom(lowerCase);
+  var upperCaseChar = getRandom(upperCase);
+  var numbersChar = getRandom(numbers);
+  var specialsChar = getRandom(specials);
+
+  combinedCharacters.push(lowerCaseChar);
+  combinedCharacters.push(upperCaseChar);
+  combinedCharacters.push(numbersChar);
+  combinedCharacters.push(specialsChar);
+
+  console.log('array', combinedCharacters)
+  console.log('capture random character', lowerCaseChar);
+  console.log('array', combinedCharacters)
+  console.log('capture random character', lowerCaseChar);
+
+
 }
 
-
 // Write password to the #password input
-function writePassword(){
+
+function writePassword() {
   promptUser()
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -220,12 +244,14 @@ function writePassword(){
 }
 
 // Add event listener to generate button
+
 generateBtn.addEventListener("click", writePassword);
 
 
 ////////////////////////////////////////////////////////
 /*
 // add funciton for getting random elements 
+
 function getRandomValue(randomValue) {
   var randomIndex = Math.floor(Math.random() * )
   var randomElement = array[]
