@@ -215,24 +215,14 @@ function generatePassword() {
 
   }
 
-  var lowerCaseChar = getRandom(lowerCase);
-  var upperCaseChar = getRandom(upperCase);
-  var numbersChar = getRandom(numbers);
-  var specialsChar = getRandom(specials);
+var pw = "";
+for(var i = 0; i < passwordLength; i++) {
+  pw = pw + getRandom(combinedCharacters)
+} 
 
-  combinedCharacters.push(lowerCaseChar);
-  combinedCharacters.push(upperCaseChar);
-  combinedCharacters.push(numbersChar);
-  combinedCharacters.push(specialsChar);
-
-  console.log('array', combinedCharacters)
-  console.log('capture random character', lowerCaseChar);
-  console.log('array', combinedCharacters)
-  console.log('capture random character', lowerCaseChar);
-
+return pw;
 
 }
-
 // Write password to the #password input
 
 function writePassword() {
@@ -246,20 +236,3 @@ function writePassword() {
 // Add event listener to generate button
 
 generateBtn.addEventListener("click", writePassword);
-
-
-////////////////////////////////////////////////////////
-/*
-// add funciton for getting random elements 
-
-function getRandomValue(randomValue) {
-  var randomIndex = Math.floor(Math.random() * )
-  var randomElement = array[]
-
-  return randomElement
-}
-// generate password from user inout
-
-
-// function to write password
-*/
